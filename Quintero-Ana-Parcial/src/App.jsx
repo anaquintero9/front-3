@@ -1,15 +1,19 @@
+import "./App.css";
 import Card from "./Card";
-import "./App.css"
-
+import Form from "./Form";
+import { useState } from "react";
 
 function App() {
+  const [pets,setPets]=useState([])
+
+  function registrar(datos) {
+    setPets([...pets, datos])
+  }
+
   return (
     <div className="App">
-      <h1>Carga de estudiantes</h1>
-      <form>
-        
-      </form>
-      <Card />
+      <Form registrar={registrar} />
+      <Card pets={pets}/>
     </div>
   );
 }
